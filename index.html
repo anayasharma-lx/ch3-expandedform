@@ -5,207 +5,578 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Expanded Form — Ganita Prakash Grade 8</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f4f0;--surface:#fff;--surface2:#f0ede8;--border:#d8d4cc;
-  --text:#1a1814;--text2:#5a5650;--text3:#9a958e;
-  --blue:#2c5f9e;--red:#c0392b;--green:#1a7a4a;--orange:#e08020;
-  --font:'DM Sans',-apple-system,sans-serif;--mono:'DM Mono',ui-monospace,monospace;
+  --paper:#faf8f4; --paper2:#f3f0ea; --paper3:#e8e3d8;
+  --ink:#1c1a16;   --ink2:#4a4640;   --ink3:#8a8580;
+  --rule:#d4cfc5;
+  --teal:#1d6a72;  --teal2:#2a8a94;  --teal-bg:#e8f4f5;
+  --rust:#b84a2a;  --rust-bg:#fdf0ec;
+  --gold:#c08030;  --gold-bg:#fdf5e8;
+  --sage:#3a6a48;  --sage-bg:#eaf2ec;
+  --violet:#6a4a90;--violet-bg:#f2eef8;
+  --font:'DM Sans',sans-serif;
+  --serif:'Lora',Georgia,serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --shadow:0 2px 12px rgba(28,26,22,.08);
 }
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.5}
-.page{max-width:860px;margin:0 auto;padding:28px 20px}
-.lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
-.title{font-size:22px;font-weight:700;margin-bottom:5px}
-.subtitle{font-size:14px;color:var(--text2);margin-bottom:22px;max-width:560px;line-height:1.5}
-.card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:22px;margin-bottom:16px}
-.card-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:14px}
+body{font-family:var(--font);background:var(--paper);color:var(--ink);min-height:100vh;-webkit-font-smoothing:antialiased;padding:28px 20px 60px;line-height:1.6;background-image:radial-gradient(circle at 20% 30%,rgba(192,128,48,.04) 0,transparent 50%),radial-gradient(circle at 80% 70%,rgba(29,106,114,.04) 0,transparent 50%)}
+.app{max-width:900px;margin:0 auto}
 
-/* Input */
-.input-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px}
-.inp-group{display:flex;flex-direction:column;gap:4px}
-.inp-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)}
-.inp-group input{padding:9px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:20px;font-weight:700;background:var(--surface);color:var(--text);outline:none;width:220px;text-align:center}
-.inp-group input:focus{border-color:var(--blue)}
-.btn{padding:8px 18px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:500;color:var(--text);background:var(--surface);cursor:pointer;font-family:var(--font);transition:all .12s;align-self:flex-end}
-.btn:hover{border-color:var(--text)}
-.btn-go{background:var(--blue);border-color:var(--blue);color:#fff}
-.preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
-.preset-lbl{font-size:12px;color:var(--text3);font-weight:500}
-.psc{padding:4px 10px;border:1.5px solid var(--border);border-radius:7px;font-family:var(--mono);font-size:12.5px;background:var(--surface);color:var(--text2);cursor:pointer}
-.psc:hover{border-color:var(--blue);color:var(--blue)}
+.header{margin-bottom:24px;padding-bottom:18px;border-bottom:1.5px solid var(--rule)}
+.chapter-badge{display:inline-flex;align-items:center;gap:8px;background:var(--paper2);border:1.5px solid var(--rule);border-radius:20px;padding:4px 14px 4px 10px;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.badge-num{width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-size:12px;font-weight:700;font-family:var(--mono);display:flex;align-items:center;justify-content:center}
+h1{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.3px;line-height:1.2;margin-bottom:5px}
+.header-sub{font-size:14px;color:var(--ink2);max-width:560px;line-height:1.55}
 
-/* Digit breakdown */
-.digits-row{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin:18px 0}
-.digit-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 8px;border-radius:10px;border:1.5px solid var(--border);min-width:64px;background:var(--surface2)}
-.digit-card.nonzero{border-color:var(--blue);background:rgba(44,95,158,.07)}
-.dc-digit{font-family:var(--mono);font-size:28px;font-weight:700;line-height:1}
-.dc-place{font-size:10.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.dc-power{font-family:var(--mono);font-size:12px;color:var(--blue);font-weight:700}
-.dc-value{font-family:var(--mono);font-size:11px;color:var(--text3)}
+.card{background:var(--paper);border:1.5px solid var(--rule);border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+.tabs{display:flex;gap:3px;background:var(--paper2);border:1.5px solid var(--rule);border-radius:12px;padding:4px;margin-bottom:22px}
+.tab{flex:1;padding:10px;border:none;background:transparent;border-radius:9px;font-family:var(--font);font-size:13px;font-weight:600;color:var(--ink3);cursor:pointer;transition:all .18s;text-align:center}
+.tab:hover{color:var(--ink2)}
+.tab.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(28,26,22,.10);border:1.5px solid var(--rule)}
+.view{display:none}.view.active{display:block}
 
-/* Expanded form display */
-.expanded-wrap{background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px;overflow-x:auto}
-.expanded-sum{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-family:var(--mono);font-size:15px}
-.exp-term{padding:5px 10px;border-radius:7px;border:1.5px solid;font-weight:600;white-space:nowrap}
-.exp-term.active{background:rgba(44,95,158,.1);border-color:#9ab4dc;color:var(--blue)}
-.exp-term.zero{color:var(--text3);border-color:var(--border)}
-.exp-plus{color:var(--text3);font-size:18px;padding:0 2px}
-.exp-equals{color:var(--text2);font-size:18px;font-weight:700;padding:0 6px}
-.exp-result{font-size:18px;font-weight:700;color:var(--text)}
+.concept{background:var(--gold-bg);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 16px;margin-bottom:20px;font-family:var(--serif);font-style:italic;font-size:14px;color:#4a3010;line-height:1.65}
+.concept strong{font-style:normal;font-weight:700;color:#3a2008}
+.insight{background:var(--gold-bg);border:1px solid #e0c080;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 15px;font-size:13px;color:#6b4400;line-height:1.65;margin-top:16px}
+.insight strong{color:#4a2e00}
 
-/* Decimal section */
-.dec-section{margin-top:18px}
-.dec-rule{background:#f0fdf4;border:1.5px solid #86efac;border-radius:9px;padding:10px 14px;font-size:13.5px;color:#15803d;font-weight:600;margin-bottom:12px}
+/* ══ TAB 1: BUILDER ══════════════════════════════════════ */
 
-.insight{background:#fff8f0;border:1.5px solid #f0d8c0;border-radius:10px;padding:13px 18px;font-size:13.5px;color:#6b4400;line-height:1.65}
-.insight strong{color:#a05000}
-.insight .eq{font-family:var(--mono);font-size:13px;display:block;margin:2px 0}
+/* Size selector */
+.size-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.size-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3)}
+.size-btn{padding:5px 13px;border:1.5px solid var(--rule);border-radius:20px;font-family:var(--font);font-size:12px;font-weight:600;color:var(--ink2);cursor:pointer;background:var(--paper);transition:all .12s}
+.size-btn:hover{border-color:var(--teal);color:var(--teal)}
+.size-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* The built number display */
+.number-display{
+  background:#fff;border:2px solid var(--rule);border-radius:12px;
+  padding:14px 20px;margin-bottom:16px;text-align:center;
+  font-family:var(--mono);font-size:36px;font-weight:800;color:var(--ink);
+  letter-spacing:2px;min-height:68px;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;position:relative
+}
+.number-display.nonzero{border-color:var(--teal);background:var(--teal-bg)}
+.nd-label{position:absolute;top:8px;left:14px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3)}
+
+/* Place value columns */
+.pv-grid{
+  display:flex;gap:6px;justify-content:center;flex-wrap:nowrap;
+  overflow-x:auto;padding-bottom:4px;margin-bottom:16px
+}
+.pv-col{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  flex-shrink:0;width:78px
+}
+
+/* Place name label */
+.pv-name{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--ink3);text-align:center;line-height:1.2;min-height:24px;display:flex;align-items:center;justify-content:center}
+
+/* The digit selector */
+.digit-sel{
+  width:100%;background:#fff;border:1.5px solid var(--rule);
+  border-radius:10px;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center
+}
+.ds-up,.ds-dn{
+  width:100%;padding:4px 0;border:none;background:var(--paper2);
+  font-size:16px;cursor:pointer;color:var(--ink3);
+  transition:all .12s;line-height:1
+}
+.ds-up:hover,.ds-dn:hover{background:var(--paper3);color:var(--ink)}
+.ds-digit-display{
+  width:100%;padding:8px 0;text-align:center;
+  font-family:var(--mono);font-size:26px;font-weight:800;
+  line-height:1;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  transition:color .15s;cursor:default
+}
+.ds-digit-display.nonzero{color:var(--teal)}
+.ds-digit-display.zero{color:var(--ink3)}
+
+/* Power label */
+.pv-power{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink3);text-align:center}
+
+/* Contribution bar */
+.contrib-bar-wrap{width:100%;height:6px;background:var(--paper3);border-radius:3px;overflow:hidden}
+.contrib-bar{height:100%;border-radius:3px;background:var(--teal);transition:width .3s}
+
+/* Contribution value */
+.contrib-val{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--teal);text-align:center;min-height:12px;transition:opacity .2s}
+.contrib-val.zero{opacity:0}
+
+/* ── EXPANDED SUM ── */
+.expanded-sum-box{
+  background:var(--paper2);border:1.5px solid var(--rule);
+  border-radius:11px;padding:14px 16px;margin-bottom:14px;
+  overflow-x:auto
+}
+.es-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3);margin-bottom:8px}
+.es-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-family:var(--mono);font-size:14px}
+.es-term{
+  padding:4px 9px;border-radius:7px;border:1.5px solid;
+  font-weight:700;white-space:nowrap;transition:all .2s
+}
+.es-term.live{background:var(--teal-bg);border-color:var(--teal2);color:var(--teal)}
+.es-term.zero-t{background:var(--paper3);border-color:var(--rule);color:var(--ink3);opacity:.5}
+.es-plus{color:var(--ink3);font-size:16px;padding:0 2px}
+.es-eq{color:var(--ink2);font-size:18px;font-weight:700;padding:0 6px}
+.es-total{font-size:20px;font-weight:800;color:var(--ink)}
+
+/* ══ TAB 2: REVERSE (READ → IDENTIFY) ══════════════════ */
+.challenge-card{background:#fff;border:1.5px solid var(--rule);border-radius:11px;padding:16px;margin-bottom:14px}
+.cc-prompt{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin-bottom:10px}
+.cc-expr{font-family:var(--mono);font-size:20px;font-weight:800;color:var(--teal);margin-bottom:12px}
+
+.term-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.term-chip{
+  padding:7px 14px;border:2px solid var(--rule);border-radius:8px;
+  font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink2);
+  cursor:pointer;background:#fff;transition:all .14s;user-select:none
+}
+.term-chip:hover{border-color:var(--teal);color:var(--teal)}
+.term-chip.selected{background:var(--teal);border-color:var(--teal);color:#fff}
+.term-chip.correct-chip{background:var(--sage-bg);border-color:var(--sage);color:var(--sage);cursor:default}
+.term-chip.wrong-chip{background:var(--rust-bg);border-color:var(--rust);color:var(--rust)}
+
+.check-btn{padding:9px 20px;background:var(--teal);border:none;border-radius:9px;color:#fff;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:all .14s}
+.check-btn:hover{background:#155a62}
+.check-btn:disabled{opacity:.3;cursor:default}
+
+.challenge-fb{
+  padding:10px 14px;border-radius:9px;border:1.5px solid;margin-top:10px;
+  font-size:13px;font-weight:600;display:none
+}
+.challenge-fb.show{display:block}
+.cfb-correct{background:var(--sage-bg);border-color:#8abcaa;color:var(--sage)}
+.cfb-wrong{background:var(--rust-bg);border-color:#e0a898;color:var(--rust)}
+
+.next-btn{padding:7px 18px;border:1.5px solid var(--rule);border-radius:8px;background:var(--paper);font-family:var(--font);font-size:13px;font-weight:600;color:var(--ink2);cursor:pointer;margin-top:8px;transition:all .12s;display:none}
+.next-btn.show{display:inline-block}
+.next-btn:hover{border-color:var(--teal);color:var(--teal)}
+
+.score-strip{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.score-num{font-family:var(--mono);font-size:20px;font-weight:800;color:var(--teal)}
+.score-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink3)}
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="lbl">Chapter 2 · Power Play</div>
-  <div class="title">Expanded Form with Powers of 10</div>
-  <div class="subtitle">Every digit of a number represents a power of 10 multiplied by that digit. Enter any number — including decimals — to see it broken into its place values as powers of 10.</div>
+<div class="app">
+  <div class="header">
+    <div class="chapter-badge"><div class="badge-num">2</div>Chapter 2 · Power Play</div>
+    <h1>Expanded Form</h1>
+    <p class="header-sub">Every digit in a number is secretly multiplied by a power of 10. Build numbers from scratch, or identify which powers are hiding inside a given expression.</p>
+  </div>
 
   <div class="card">
-    <div class="input-row">
-      <div class="inp-group">
-        <label>Number</label>
-        <input type="text" id="numIn" value="47561" placeholder="e.g. 47561 or 561.903">
+    <div class="tabs">
+      <button class="tab active" data-tab="build">Build a number</button>
+      <button class="tab" data-tab="identify">Identify the powers</button>
+    </div>
+
+    <!-- ══ BUILD TAB ══ -->
+    <div class="view active" id="view-build">
+      <div class="concept">
+        <strong>Click the ▲▼ arrows to set each digit.</strong> Watch how each digit contributes to the total — 4 in the thousands place adds 4,000. The expanded form updates live. Try to build a specific number!
       </div>
-      <button class="btn btn-go" onclick="expand()">Expand</button>
-    </div>
-    <div class="preset-row">
-      <span class="preset-lbl">Try:</span>
-      <button class="psc" onclick="setN('47561')">47561</button>
-      <button class="psc" onclick="setN('172')">172</button>
-      <button class="psc" onclick="setN('5642')">5642</button>
-      <button class="psc" onclick="setN('6374')">6374</button>
-      <button class="psc" onclick="setN('561.903')">561.903</button>
-      <button class="psc" onclick="setN('1000000')">10,00,000</button>
-      <button class="psc" onclick="setN('0.0045')">0.0045</button>
-    </div>
 
-    <!-- Digit cards -->
-    <div class="card-title">Each digit and its place value</div>
-    <div class="digits-row" id="digitsRow"></div>
+      <div class="size-row">
+        <span class="size-lbl">Digits:</span>
+        <button class="size-btn" data-sz="2">2</button>
+        <button class="size-btn active" data-sz="4">4</button>
+        <button class="size-btn" data-sz="5">5</button>
+        <button class="size-btn" data-sz="6">6</button>
+        <button class="size-btn" data-sz="7">7</button>
+        <button class="size-btn" data-sz="8">8</button>
+      </div>
 
-    <!-- Expanded sum -->
-    <div class="card-title" style="margin-top:8px">Expanded form using powers of 10</div>
-    <div class="expanded-wrap" id="expandedWrap">
-      <div class="expanded-sum" id="expandedSum"></div>
-    </div>
+      <div class="number-display" id="number-display">
+        <span class="nd-label">Your number</span>
+        <span id="nd-value">0</span>
+      </div>
 
-    <!-- Decimal note -->
-    <div class="dec-section" id="decSection" style="display:none">
-      <div class="dec-rule">Digits after the decimal point use negative powers of 10: 10⁻¹ = 1/10, 10⁻² = 1/100, 10⁻³ = 1/1000 ...</div>
+      <div class="pv-grid" id="pv-grid"></div>
+
+      <div class="expanded-sum-box">
+        <div class="es-lbl">Expanded form</div>
+        <div class="es-row" id="es-row"></div>
+      </div>
+
+      <div class="insight" id="build-insight">Set digits above to see the expanded form.</div>
     </div>
 
-    <div class="insight" id="insight"></div>
+    <!-- ══ IDENTIFY TAB ══ -->
+    <div class="view" id="view-identify">
+      <div class="concept">
+        <strong>Which terms belong in this expanded form?</strong> An expression like (3 × 10³) + (5 × 10¹) is shown. Select all the correct power-of-10 terms — some are distractors. When you select the right ones, the number appears.
+      </div>
+
+      <div class="score-strip">
+        <div><div class="score-num" id="score-num">0/0</div><div class="score-lbl">Score</div></div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="cc-prompt" id="cc-prompt">What is the expanded form of this number?</div>
+        <div class="cc-expr" id="cc-expr"></div>
+        <div class="term-chips" id="term-chips"></div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="check-btn" id="check-btn">Check</button>
+          <button class="next-btn" id="next-btn">Next question →</button>
+        </div>
+        <div class="challenge-fb" id="challenge-fb"></div>
+      </div>
+
+      <div class="insight">
+        <strong>Reading expanded form:</strong> (4 × 10³) + (7 × 10²) + (5 × 10⁰) means the digit 4 is in the thousands place, 7 in hundreds, and 5 in units. Add them: 4000 + 700 + 5 = 4705. Notice the tens digit is 0 — it has no term in the expansion.
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-const PLACE_NAMES=['units','tens','hundreds','thousands','ten thousands','lakh','ten lakhs','crore'];
-const PLACE_NAMES_NEG=['tenths (1/10)','hundredths (1/100)','thousandths (1/1000)','ten-thousandths'];
-
+// ══════════════════════════════════════════════════
+// HELPERS
+// ══════════════════════════════════════════════════
 function sup(n){
-  const map={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
-  return String(n).split('').map(c=>map[c]||c).join('');
+  return String(n).split('').map(c=>({'−':'⁻','-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'}[c]||c)).join('');
 }
+function fmtN(n){ return n.toLocaleString('en-IN'); }
 
-function setN(v){document.getElementById('numIn').value=v;expand();}
-window.setN=setN;
+const PLACE_NAMES = ['units','tens','hundreds','thousands','ten-thousands','lakhs','ten-lakhs','crores'];
+const PALETTE     = ['#1d6a72','#b84a2a','#c08030','#3a6a48','#6a4a90','#2a5a8a','#a83060','#1d6a72'];
 
-function expand(){
-  const raw=document.getElementById('numIn').value.trim();
-  if(!raw){return;}
+// ══════════════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('view-'+tab.dataset.tab).classList.add('active');
+    if(tab.dataset.tab==='identify') loadChallenge();
+  });
+});
 
-  const hasDec=raw.includes('.');
-  const parts=raw.split('.');
-  const intPart=parts[0]||'0';
-  const decPart=parts[1]||'';
+// ══════════════════════════════════════════════════
+// TAB 1: BUILDER
+// ══════════════════════════════════════════════════
+let numDigits = 4;
+let digits    = [0,0,0,0]; // index 0 = most significant
 
-  // Build digit array: [{digit, power, value}]
-  const digits=[];
-  // Integer part — right to left
-  for(let i=0;i<intPart.length;i++){
-    const d=parseInt(intPart[intPart.length-1-i]);
-    digits.push({d,power:i,value:d*Math.pow(10,i)});
-  }
-  digits.reverse();
+function buildPVGrid(){
+  const grid = document.getElementById('pv-grid');
+  grid.innerHTML = '';
 
-  // Decimal part
-  const decDigits=[];
-  for(let i=0;i<decPart.length;i++){
-    const d=parseInt(decPart[i]);
-    decDigits.push({d,power:-(i+1),value:d*Math.pow(10,-(i+1))});
-  }
+  const total = digits.reduce((s,d,i)=>s + d*Math.pow(10, numDigits-1-i), 0);
+  const maxContrib = Math.pow(10, numDigits-1); // max single digit contribution
 
-  const allDigits=[...digits,...decDigits];
+  digits.forEach((d, i) => {
+    const power = numDigits - 1 - i;
+    const contrib = d * Math.pow(10, power);
+    const col = document.createElement('div');
+    col.className = 'pv-col';
+    const color = PALETTE[power % PALETTE.length];
 
-  // Digit cards
-  const dRow=document.getElementById('digitsRow');
-  dRow.innerHTML='';
-  allDigits.forEach(({d,power,value})=>{
-    const card=document.createElement('div');
-    card.className='digit-card'+(d>0?' nonzero':'');
-    const placeName=power>=0?(PLACE_NAMES[power]||`10${sup(power)} place`):(PLACE_NAMES_NEG[-(power+1)]||`10${sup(power)} place`);
-    card.innerHTML=`
-      <div class="dc-digit" style="color:${d>0?'var(--blue)':'var(--text3)'}">${d}</div>
-      <div class="dc-place">${placeName}</div>
-      <div class="dc-power">× 10${sup(power)}</div>
-      <div class="dc-value">${d>0?`= ${d>0?formatVal(value):'0'}`:''}</div>`;
-    dRow.appendChild(card);
+    // Place name
+    const nameEl = document.createElement('div');
+    nameEl.className = 'pv-name';
+    nameEl.textContent = PLACE_NAMES[power] || `10${sup(power)}`;
+    col.appendChild(nameEl);
+
+    // Digit selector
+    const sel = document.createElement('div');
+    sel.className = 'digit-sel';
+
+    const upBtn = document.createElement('button');
+    upBtn.className = 'ds-up';
+    upBtn.textContent = '▲';
+    upBtn.addEventListener('click', ()=>{ digits[i]=(digits[i]+1)%10; updateBuilder(); });
+
+    const digitDisp = document.createElement('div');
+    digitDisp.className = 'ds-digit-display ' + (d>0?'nonzero':'zero');
+    digitDisp.style.color = d>0 ? color : 'var(--ink3)';
+    digitDisp.textContent = d;
+
+    const dnBtn = document.createElement('button');
+    dnBtn.className = 'ds-dn';
+    dnBtn.textContent = '▼';
+    dnBtn.addEventListener('click', ()=>{ digits[i]=(digits[i]+9)%10; updateBuilder(); });
+
+    sel.appendChild(upBtn);
+    sel.appendChild(digitDisp);
+    sel.appendChild(dnBtn);
+    col.appendChild(sel);
+
+    // Power label
+    const powEl = document.createElement('div');
+    powEl.className = 'pv-power';
+    powEl.textContent = `× 10${sup(power)}`;
+    col.appendChild(powEl);
+
+    // Contribution bar
+    const barWrap = document.createElement('div');
+    barWrap.className = 'contrib-bar-wrap';
+    const bar = document.createElement('div');
+    bar.className = 'contrib-bar';
+    bar.style.background = color;
+    const pct = d > 0 ? Math.min(100, (d * Math.pow(10,power)) / maxContrib * 100) : 0;
+    bar.style.width = pct + '%';
+    barWrap.appendChild(bar);
+    col.appendChild(barWrap);
+
+    // Contribution value
+    const valEl = document.createElement('div');
+    valEl.className = 'contrib-val' + (d===0?' zero':'');
+    valEl.style.color = color;
+    valEl.textContent = d>0 ? fmtN(contrib) : '—';
+    col.appendChild(valEl);
+
+    grid.appendChild(col);
   });
 
-  // Expanded sum
-  const sumEl=document.getElementById('expandedSum');
-  sumEl.innerHTML='';
-  const nonZero=allDigits.filter(({d})=>d>0);
-  allDigits.forEach(({d,power},i)=>{
-    if(i>0){
-      const plus=document.createElement('span');
-      plus.className='exp-plus';
-      plus.textContent='+';
-      sumEl.appendChild(plus);
+  updateExpandedSum(total);
+  updateNumberDisplay(total);
+  updateBuildInsight(total);
+}
+
+function updateExpandedSum(total){
+  const row = document.getElementById('es-row');
+  row.innerHTML = '';
+  let first = true;
+
+  digits.forEach((d,i)=>{
+    const power = numDigits-1-i;
+    const color = PALETTE[power % PALETTE.length];
+
+    if(!first){
+      const plus = document.createElement('span');
+      plus.className = 'es-plus';
+      plus.textContent = '+';
+      row.appendChild(plus);
     }
-    const term=document.createElement('span');
-    term.className='exp-term'+(d>0?' active':' zero');
-    term.textContent=d>0?`(${d} × 10${sup(power)})`:`(0)`;
-    sumEl.appendChild(term);
+    first = false;
+
+    const term = document.createElement('span');
+    term.className = 'es-term ' + (d>0?'live':'zero-t');
+    if(d>0) term.style.cssText=`background:${color}18;border-color:${color}80;color:${color}`;
+    term.textContent = d>0 ? `(${d} × 10${sup(power)})` : `(0)`;
+    row.appendChild(term);
   });
 
-  // equals and result
-  const eq=document.createElement('span');
-  eq.className='exp-equals';
-  eq.textContent='=';
-  sumEl.appendChild(eq);
-  const res=document.createElement('span');
-  res.className='exp-result';
-  res.textContent=raw;
-  sumEl.appendChild(res);
+  const eq = document.createElement('span');
+  eq.className = 'es-eq'; eq.textContent='=';
+  row.appendChild(eq);
 
-  // Decimal section
-  document.getElementById('decSection').style.display=hasDec?'block':'none';
-
-  // Insight
-  const nonZeroTerms=allDigits.filter(({d})=>d>0).map(({d,power})=>`${d} × 10${sup(power)}`).join(' + ');
-  document.getElementById('insight').innerHTML=
-    `<strong>${raw} = ${nonZeroTerms||'0'}</strong>
-    Each digit tells you how many of that power of 10 there are. The ${intPart[0]} in the leftmost position is worth ${intPart[0]} × 10${sup(intPart.length-1)} = ${parseInt(intPart[0])*Math.pow(10,intPart.length-1).toLocaleString('en-IN')} — this is the most significant digit.
-    ${hasDec?`Digits after the decimal use negative powers: 10⁻¹ = 1/10, 10⁻² = 1/100, etc.`:''}`;
+  const tot = document.createElement('span');
+  tot.className = 'es-total';
+  tot.textContent = fmtN(total);
+  row.appendChild(tot);
 }
 
-function formatVal(v){
-  if(v>=1) return v.toLocaleString('en-IN');
-  return '1/'+Math.round(1/v);
+function updateNumberDisplay(total){
+  const disp = document.getElementById('number-display');
+  const val  = document.getElementById('nd-value');
+  val.textContent = fmtN(total);
+  disp.classList.toggle('nonzero', total > 0);
 }
 
-expand();
+function updateBuildInsight(total){
+  const el = document.getElementById('build-insight');
+  if(total === 0){
+    el.textContent = 'Set some digits above to see the expanded form.';
+    return;
+  }
+  const nonZeroTerms = digits
+    .map((d,i)=>{const p=numDigits-1-i;return d>0?`${d} × 10${sup(p)}`:null;})
+    .filter(Boolean);
+  const topDigit = digits[0];
+  const topPower = numDigits-1;
+  const topVal   = fmtN(topDigit * Math.pow(10,topPower));
+  el.innerHTML = `<strong>${fmtN(total)} = ${nonZeroTerms.join(' + ')}</strong>. The leading digit ${topDigit} is in the ${PLACE_NAMES[topPower]} place — worth ${topVal}. Each step right divides the place value by 10.`;
+}
+
+function updateBuilder(){
+  buildPVGrid();
+}
+
+// Size buttons
+document.querySelectorAll('.size-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    numDigits = +btn.dataset.sz;
+    digits = Array(numDigits).fill(0);
+    buildPVGrid();
+  });
+});
+
+buildPVGrid();
+
+// ══════════════════════════════════════════════════
+// TAB 2: IDENTIFY CHALLENGES
+// ══════════════════════════════════════════════════
+let score = 0, total_q = 0;
+let currentChallenge = null;
+let selectedTerms    = new Set();
+let answered         = false;
+
+const CHALLENGES = [
+  {
+    number:4705,
+    prompt:'Which terms make up 4,705 in expanded form?',
+    correct:[3,2,0],  // powers that appear
+    distractors:[1,4] // wrong powers
+  },
+  {
+    number:62041,
+    prompt:'Select all the powers of 10 in the expanded form of 62,041:',
+    correct:[4,3,1,0],
+    distractors:[2,5]
+  },
+  {
+    number:30500,
+    prompt:'Which terms belong in the expanded form of 30,500?',
+    correct:[4,2],
+    distractors:[3,1,0]
+  },
+  {
+    number:7080,
+    prompt:'Identify the correct terms in the expanded form of 7,080:',
+    correct:[3,1],
+    distractors:[2,0,4]
+  },
+  {
+    number:500200,
+    prompt:'Select every term in the expanded form of 5,00,200:',
+    correct:[5,2],
+    distractors:[4,3,1,0]
+  },
+  {
+    number:123456,
+    prompt:'All 6 digits are non-zero. Select the right powers for 1,23,456:',
+    correct:[5,4,3,2,1,0],
+    distractors:[6]
+  },
+  {
+    number:9000,
+    prompt:'Only one digit is non-zero. Pick the single term for 9,000:',
+    correct:[3],
+    distractors:[0,1,2,4]
+  },
+];
+
+let challengeOrder = [];
+let challengeIdx   = 0;
+
+function shuffleArr(arr){ return [...arr].sort(()=>Math.random()-.5); }
+
+function initChallenges(){
+  challengeOrder = shuffleArr([...Array(CHALLENGES.length).keys()]);
+  challengeIdx   = 0;
+  score=0; total_q=0;
+  updateScore();
+}
+
+function loadChallenge(){
+  if(challengeOrder.length===0) initChallenges();
+
+  const ci = challengeOrder[challengeIdx % challengeOrder.length];
+  currentChallenge = CHALLENGES[ci];
+  selectedTerms.clear();
+  answered = false;
+
+  document.getElementById('cc-prompt').textContent = currentChallenge.prompt;
+
+  // Build expression display
+  const correctPowers = currentChallenge.correct;
+  const n = currentChallenge.number;
+  const terms = correctPowers.map(p=>`(${Math.floor(n/Math.pow(10,p))%10} × 10${sup(p)})`).join(' + ');
+  document.getElementById('cc-expr').textContent = fmtN(n) + ' = ' + terms;
+
+  // Build chip options: correct + distractors, shuffled
+  const allPowers = shuffleArr([...correctPowers, ...currentChallenge.distractors]);
+  const chipsDiv = document.getElementById('term-chips');
+  chipsDiv.innerHTML = '';
+
+  allPowers.forEach(p=>{
+    const digit = Math.floor(n/Math.pow(10,p))%10;
+    // For distractors the digit might be 0 — show a plausible digit
+    const showDigit = correctPowers.includes(p) ? digit : [1,2,3,4,5,6,7,8,9][Math.floor(Math.random()*9)];
+    const chip = document.createElement('div');
+    chip.className = 'term-chip';
+    chip.dataset.power = p;
+    chip.textContent = `(${showDigit} × 10${sup(p)})`;
+    chip.addEventListener('click',()=>{
+      if(answered) return;
+      if(selectedTerms.has(p)) selectedTerms.delete(p);
+      else selectedTerms.add(p);
+      chip.classList.toggle('selected', selectedTerms.has(p));
+    });
+    chipsDiv.appendChild(chip);
+  });
+
+  // Reset UI
+  document.getElementById('check-btn').disabled = false;
+  document.getElementById('challenge-fb').className = 'challenge-fb';
+  document.getElementById('next-btn').className = 'next-btn';
+}
+
+document.getElementById('check-btn').addEventListener('click',()=>{
+  if(answered) return;
+  answered = true;
+  document.getElementById('check-btn').disabled = true;
+
+  const correct = new Set(currentChallenge.correct);
+  const isCorrect = [...selectedTerms].every(p=>correct.has(p)) && correct.size === selectedTerms.size;
+
+  total_q++;
+  if(isCorrect) score++;
+  updateScore();
+
+  // Colour the chips
+  document.querySelectorAll('.term-chip').forEach(chip=>{
+    const p = +chip.dataset.power;
+    if(correct.has(p) && selectedTerms.has(p)) chip.className='term-chip correct-chip';
+    else if(!correct.has(p) && selectedTerms.has(p)) chip.className='term-chip wrong-chip';
+    else if(correct.has(p) && !selectedTerms.has(p)) chip.className='term-chip correct-chip'; // missed
+    else chip.className='term-chip';
+  });
+
+  const fb = document.getElementById('challenge-fb');
+  fb.className = 'challenge-fb show ' + (isCorrect ? 'cfb-correct' : 'cfb-wrong');
+  if(isCorrect){
+    fb.innerHTML = `✓ Correct! ${fmtN(currentChallenge.number)} = ${currentChallenge.correct.map(p=>{const d=Math.floor(currentChallenge.number/Math.pow(10,p))%10;return `(${d} × 10${sup(p)})`;}).join(' + ')}`;
+  } else {
+    const missed = currentChallenge.correct.filter(p=>!selectedTerms.has(p));
+    const wrong  = [...selectedTerms].filter(p=>!currentChallenge.correct.includes(p));
+    let msg = '✗ Not quite. ';
+    if(wrong.length) msg += `Powers 10${wrong.map(p=>sup(p)).join(', 10')} shouldn't be here. `;
+    if(missed.length) msg += `You missed: 10${missed.map(p=>sup(p)).join(', 10')}.`;
+    fb.textContent = msg;
+  }
+
+  const next = document.getElementById('next-btn');
+  next.className = 'next-btn show';
+});
+
+document.getElementById('next-btn').addEventListener('click',()=>{
+  challengeIdx++;
+  if(challengeIdx >= challengeOrder.length){
+    challengeOrder = shuffleArr([...Array(CHALLENGES.length).keys()]);
+    challengeIdx=0;
+  }
+  loadChallenge();
+});
+
+function updateScore(){
+  document.getElementById('score-num').textContent = `${score}/${total_q}`;
+}
+
+initChallenges();
 </script>
 </body>
 </html>
